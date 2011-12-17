@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SaleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SaleModelStoreContainer">
+          <EntitySet Name="ChiTietHoaDon" EntityType="SaleModel.Store.ChiTietHoaDon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChiTietPhieuNhap" EntityType="SaleModel.Store.ChiTietPhieuNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HoaDon" EntityType="SaleModel.Store.HoaDon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KhachHang" EntityType="SaleModel.Store.KhachHang" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LinhKien" EntityType="SaleModel.Store.LinhKien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LinhKienTon" EntityType="SaleModel.Store.LinhKienTon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoaiLinhKien" EntityType="SaleModel.Store.LoaiLinhKien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhieuNhap" EntityType="SaleModel.Store.PhieuNhap" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_cTietHDon_HoaDon" Association="SaleModel.Store.FK_cTietHDon_HoaDon">
+            <End Role="HoaDon" EntitySet="HoaDon" />
+            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietHDon_lKien" Association="SaleModel.Store.FK_cTietHDon_lKien">
+            <End Role="LinhKien" EntitySet="LinhKien" />
+            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietPNhap_lKien" Association="SaleModel.Store.FK_cTietPNhap_lKien">
+            <End Role="LinhKien" EntitySet="LinhKien" />
+            <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietPNhap_PhieuNhap" Association="SaleModel.Store.FK_cTietPNhap_PhieuNhap">
+            <End Role="PhieuNhap" EntitySet="PhieuNhap" />
+            <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_kHang" Association="SaleModel.Store.FK_HoaDon_kHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="HoaDon" EntitySet="HoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lKien_LoaiLK" Association="SaleModel.Store.FK_lKien_LoaiLK">
+            <End Role="LoaiLinhKien" EntitySet="LoaiLinhKien" />
+            <End Role="LinhKien" EntitySet="LinhKien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lKienTon_lKien" Association="SaleModel.Store.FK_lKienTon_lKien">
+            <End Role="LinhKien" EntitySet="LinhKien" />
+            <End Role="LinhKienTon" EntitySet="LinhKienTon" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChiTietHoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaHoaDon" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="SoLuongBan" Type="int" />
+          <Property Name="GiaSanPham" Type="int" />
+        </EntityType>
+        <EntityType Name="ChiTietPhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="SoLuongNhap" Type="int" />
+          <Property Name="GiaNhap" Type="int" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="MaKH" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NgayLap" Type="datetime" />
+          <Property Name="NgayGiao" Type="datetime" />
+          <Property Name="TongGiaTien" Type="int" />
+          <Property Name="DiaChiGiao" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="bit" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="20" />
+          <Property Name="TenDN" Type="nvarchar" MaxLength="10" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="10" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="20" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LinhKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MaLKien" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TenLinhKien" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLoai" Type="nvarchar" MaxLength="10" />
+          <Property Name="GiaBan" Type="int" />
+          <Property Name="HinhAnh" Type="image" />
+          <Property Name="SanPhamMoi" Type="bit" />
+          <Property Name="ThongTinThem" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LinhKienTon">
+          <Key>
+            <PropertyRef Name="idTon" />
+          </Key>
+          <Property Name="idTon" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ngay" Type="datetime" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="SoLuongTon" Type="int" />
+        </EntityType>
+        <EntityType Name="LoaiLinhKien">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="PhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NgayLap" Type="datetime" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_cTietHDon_HoaDon">
+          <End Role="HoaDon" Type="SaleModel.Store.HoaDon" Multiplicity="1" />
+          <End Role="ChiTietHoaDon" Type="SaleModel.Store.ChiTietHoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="MaHoaDon" />
+            </Principal>
+            <Dependent Role="ChiTietHoaDon">
+              <PropertyRef Name="MaHoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietHDon_lKien">
+          <End Role="LinhKien" Type="SaleModel.Store.LinhKien" Multiplicity="1" />
+          <End Role="ChiTietHoaDon" Type="SaleModel.Store.ChiTietHoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChiTietHoaDon">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietPNhap_lKien">
+          <End Role="LinhKien" Type="SaleModel.Store.LinhKien" Multiplicity="1" />
+          <End Role="ChiTietPhieuNhap" Type="SaleModel.Store.ChiTietPhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChiTietPhieuNhap">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietPNhap_PhieuNhap">
+          <End Role="PhieuNhap" Type="SaleModel.Store.PhieuNhap" Multiplicity="1" />
+          <End Role="ChiTietPhieuNhap" Type="SaleModel.Store.ChiTietPhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="ChiTietPhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_kHang">
+          <End Role="KhachHang" Type="SaleModel.Store.KhachHang" Multiplicity="1" />
+          <End Role="HoaDon" Type="SaleModel.Store.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lKien_LoaiLK">
+          <End Role="LoaiLinhKien" Type="SaleModel.Store.LoaiLinhKien" Multiplicity="0..1" />
+          <End Role="LinhKien" Type="SaleModel.Store.LinhKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiLinhKien">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="LinhKien">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lKienTon_lKien">
+          <End Role="LinhKien" Type="SaleModel.Store.LinhKien" Multiplicity="0..1" />
+          <End Role="LinhKienTon" Type="SaleModel.Store.LinhKienTon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LinhKienTon">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InsertImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaLKien" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenLinhKien" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaLoai" Type="nvarchar" Mode="In" />
+          <Parameter Name="GiaBan" Type="int" Mode="In" />
+          <Parameter Name="HinhAnh" Type="image" Mode="In" />
+          <Parameter Name="SanPhamMoi" Type="bit" Mode="In" />
+          <Parameter Name="ThongTinThem" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SaleModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SaleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChiTietHoaDons" EntityType="SaleModel.ChiTietHoaDon" />
+          <EntitySet Name="ChiTietPhieuNhaps" EntityType="SaleModel.ChiTietPhieuNhap" />
+          <EntitySet Name="HoaDons" EntityType="SaleModel.HoaDon" />
+          <EntitySet Name="KhachHangs" EntityType="SaleModel.KhachHang" />
+          <EntitySet Name="LinhKiens" EntityType="SaleModel.LinhKien" />
+          <EntitySet Name="LinhKienTons" EntityType="SaleModel.LinhKienTon" />
+          <EntitySet Name="LoaiLinhKiens" EntityType="SaleModel.LoaiLinhKien" />
+          <EntitySet Name="PhieuNhaps" EntityType="SaleModel.PhieuNhap" />
+          <AssociationSet Name="FK_cTietHDon_HoaDon" Association="SaleModel.FK_cTietHDon_HoaDon">
+            <End Role="HoaDon" EntitySet="HoaDons" />
+            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietHDon_lKien" Association="SaleModel.FK_cTietHDon_lKien">
+            <End Role="LinhKien" EntitySet="LinhKiens" />
+            <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietPNhap_lKien" Association="SaleModel.FK_cTietPNhap_lKien">
+            <End Role="LinhKien" EntitySet="LinhKiens" />
+            <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cTietPNhap_PhieuNhap" Association="SaleModel.FK_cTietPNhap_PhieuNhap">
+            <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+            <End Role="ChiTietPhieuNhap" EntitySet="ChiTietPhieuNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_kHang" Association="SaleModel.FK_HoaDon_kHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lKien_LoaiLK" Association="SaleModel.FK_lKien_LoaiLK">
+            <End Role="LoaiLinhKien" EntitySet="LoaiLinhKiens" />
+            <End Role="LinhKien" EntitySet="LinhKiens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lKienTon_lKien" Association="SaleModel.FK_lKienTon_lKien">
+            <End Role="LinhKien" EntitySet="LinhKiens" />
+            <End Role="LinhKienTon" EntitySet="LinhKienTons" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChiTietHoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBan" Type="Int32" />
+          <Property Name="GiaSanPham" Type="Int32" />
+          <NavigationProperty Name="HoaDon" Relationship="SaleModel.FK_cTietHDon_HoaDon" FromRole="ChiTietHoaDon" ToRole="HoaDon" />
+          <NavigationProperty Name="LinhKien" Relationship="SaleModel.FK_cTietHDon_lKien" FromRole="ChiTietHoaDon" ToRole="LinhKien" />
+        </EntityType>
+        <EntityType Name="ChiTietPhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongNhap" Type="Int32" />
+          <Property Name="GiaNhap" Type="Int32" />
+          <NavigationProperty Name="LinhKien" Relationship="SaleModel.FK_cTietPNhap_lKien" FromRole="ChiTietPhieuNhap" ToRole="LinhKien" />
+          <NavigationProperty Name="PhieuNhap" Relationship="SaleModel.FK_cTietPNhap_PhieuNhap" FromRole="ChiTietPhieuNhap" ToRole="PhieuNhap" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="MaKH" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="NgayLap" Type="DateTime" />
+          <Property Name="NgayGiao" Type="DateTime" />
+          <Property Name="TongGiaTien" Type="Int32" />
+          <Property Name="DiaChiGiao" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="GhiChu" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChiTietHoaDons" Relationship="SaleModel.FK_cTietHDon_HoaDon" FromRole="HoaDon" ToRole="ChiTietHoaDon" />
+          <NavigationProperty Name="KhachHang" Relationship="SaleModel.FK_HoaDon_kHang" FromRole="HoaDon" ToRole="KhachHang" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="TenKH" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="TenDN" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="SDT" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="HoaDons" Relationship="SaleModel.FK_HoaDon_kHang" FromRole="KhachHang" ToRole="HoaDon" />
+        </EntityType>
+        <EntityType Name="LinhKien">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaLKien" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="TenLinhKien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaLoai" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="GiaBan" Type="Int32" />
+          <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SanPhamMoi" Type="Boolean" />
+          <Property Name="ThongTinThem" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChiTietHoaDons" Relationship="SaleModel.FK_cTietHDon_lKien" FromRole="LinhKien" ToRole="ChiTietHoaDon" />
+          <NavigationProperty Name="ChiTietPhieuNhaps" Relationship="SaleModel.FK_cTietPNhap_lKien" FromRole="LinhKien" ToRole="ChiTietPhieuNhap" />
+          <NavigationProperty Name="LoaiLinhKien" Relationship="SaleModel.FK_lKien_LoaiLK" FromRole="LinhKien" ToRole="LoaiLinhKien" />
+          <NavigationProperty Name="LinhKienTons" Relationship="SaleModel.FK_lKienTon_lKien" FromRole="LinhKien" ToRole="LinhKienTon" />
+        </EntityType>
+        <EntityType Name="LinhKienTon">
+          <Key>
+            <PropertyRef Name="idTon" />
+          </Key>
+          <Property Name="idTon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ngay" Type="DateTime" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="SoLuongTon" Type="Int32" />
+          <NavigationProperty Name="LinhKien" Relationship="SaleModel.FK_lKienTon_lKien" FromRole="LinhKienTon" ToRole="LinhKien" />
+        </EntityType>
+        <EntityType Name="LoaiLinhKien">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MoTa" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LinhKiens" Relationship="SaleModel.FK_lKien_LoaiLK" FromRole="LoaiLinhKien" ToRole="LinhKien" />
+        </EntityType>
+        <EntityType Name="PhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="NgayLap" Type="DateTime" />
+          <Property Name="GhiChu" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChiTietPhieuNhaps" Relationship="SaleModel.FK_cTietPNhap_PhieuNhap" FromRole="PhieuNhap" ToRole="ChiTietPhieuNhap" />
+        </EntityType>
+        <Association Name="FK_cTietHDon_HoaDon">
+          <End Role="HoaDon" Type="SaleModel.HoaDon" Multiplicity="1" />
+          <End Role="ChiTietHoaDon" Type="SaleModel.ChiTietHoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="MaHoaDon" />
+            </Principal>
+            <Dependent Role="ChiTietHoaDon">
+              <PropertyRef Name="MaHoaDon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietHDon_lKien">
+          <End Role="LinhKien" Type="SaleModel.LinhKien" Multiplicity="1" />
+          <End Role="ChiTietHoaDon" Type="SaleModel.ChiTietHoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChiTietHoaDon">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietPNhap_lKien">
+          <End Role="LinhKien" Type="SaleModel.LinhKien" Multiplicity="1" />
+          <End Role="ChiTietPhieuNhap" Type="SaleModel.ChiTietPhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChiTietPhieuNhap">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cTietPNhap_PhieuNhap">
+          <End Role="PhieuNhap" Type="SaleModel.PhieuNhap" Multiplicity="1" />
+          <End Role="ChiTietPhieuNhap" Type="SaleModel.ChiTietPhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="ChiTietPhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_kHang">
+          <End Role="KhachHang" Type="SaleModel.KhachHang" Multiplicity="1" />
+          <End Role="HoaDon" Type="SaleModel.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lKien_LoaiLK">
+          <End Role="LoaiLinhKien" Type="SaleModel.LoaiLinhKien" Multiplicity="0..1" />
+          <End Role="LinhKien" Type="SaleModel.LinhKien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiLinhKien">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="LinhKien">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lKienTon_lKien">
+          <End Role="LinhKien" Type="SaleModel.LinhKien" Multiplicity="0..1" />
+          <End Role="LinhKienTon" Type="SaleModel.LinhKienTon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LinhKien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LinhKienTon">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SaleModelStoreContainer" CdmEntityContainer="SaleEntities">
+          <EntitySetMapping Name="ChiTietHoaDons"><EntityTypeMapping TypeName="SaleModel.ChiTietHoaDon"><MappingFragment StoreEntitySet="ChiTietHoaDon">
+            <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SoLuongBan" ColumnName="SoLuongBan" />
+            <ScalarProperty Name="GiaSanPham" ColumnName="GiaSanPham" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ChiTietPhieuNhaps"><EntityTypeMapping TypeName="SaleModel.ChiTietPhieuNhap"><MappingFragment StoreEntitySet="ChiTietPhieuNhap">
+            <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
+            <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HoaDons"><EntityTypeMapping TypeName="SaleModel.HoaDon"><MappingFragment StoreEntitySet="HoaDon">
+            <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+            <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+            <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+            <ScalarProperty Name="NgayGiao" ColumnName="NgayGiao" />
+            <ScalarProperty Name="TongGiaTien" ColumnName="TongGiaTien" />
+            <ScalarProperty Name="DiaChiGiao" ColumnName="DiaChiGiao" />
+            <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+            <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs"><EntityTypeMapping TypeName="SaleModel.KhachHang"><MappingFragment StoreEntitySet="KhachHang">
+            <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+            <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+            <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+            <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+            <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+            <ScalarProperty Name="SDT" ColumnName="SDT" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LinhKiens"><EntityTypeMapping TypeName="SaleModel.LinhKien"><MappingFragment StoreEntitySet="LinhKien">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="MaLKien" ColumnName="MaLKien" />
+            <ScalarProperty Name="TenLinhKien" ColumnName="TenLinhKien" />
+            <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+            <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+            <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+            <ScalarProperty Name="SanPhamMoi" ColumnName="SanPhamMoi" />
+            <ScalarProperty Name="ThongTinThem" ColumnName="ThongTinThem" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LinhKienTons"><EntityTypeMapping TypeName="SaleModel.LinhKienTon"><MappingFragment StoreEntitySet="LinhKienTon">
+            <ScalarProperty Name="idTon" ColumnName="idTon" />
+            <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="LoaiLinhKiens"><EntityTypeMapping TypeName="SaleModel.LoaiLinhKien"><MappingFragment StoreEntitySet="LoaiLinhKien">
+            <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+            <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+            <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PhieuNhaps"><EntityTypeMapping TypeName="SaleModel.PhieuNhap"><MappingFragment StoreEntitySet="PhieuNhap">
+            <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+            <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+            <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SaleManagmentDB">
+        <EntityTypeShape EntityType="SaleModel.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="3.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.ChiTietPhieuNhap" Width="1.5" PointX="5.25" PointY="0.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.HoaDon" Width="1.5" PointX="3" PointY="7.5" Height="2.5783902994791648" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.KhachHang" Width="1.5" PointX="0.75" PointY="7.625" Height="2.2496956380208344" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.LinhKien" Width="1.5" PointX="3" PointY="3.25" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.LinhKienTon" Width="1.5" PointX="5.25" PointY="9.25" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.LoaiLinhKien" Width="1.5" PointX="0.75" PointY="3.875" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaleModel.PhieuNhap" Width="1.5" PointX="3" PointY="0.875" Height="1.5923063151041674" IsExpanded="true" />
+        <AssociationConnector Association="SaleModel.FK_cTietHDon_HoaDon" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.5" />
+          <ConnectorPoint PointX="4.875" PointY="7.125" />
+          <ConnectorPoint PointX="4.875" PointY="4.71050048828125" />
+          <ConnectorPoint PointX="5.25" PointY="4.71050048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_cTietHDon_lKien" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.1677502441406249" />
+          <ConnectorPoint PointX="5.25" PointY="4.1677502441406249" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_cTietPNhap_lKien" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.25" />
+          <ConnectorPoint PointX="4.875" PointY="2.875" />
+          <ConnectorPoint PointX="4.875" PointY="3.0460009765624996" />
+          <ConnectorPoint PointX="5.25" PointY="2.6710009765624996" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_cTietPNhap_PhieuNhap" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.6711531575520837" />
+          <ConnectorPoint PointX="5.25" PointY="1.6711531575520837" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_HoaDon_kHang" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.7498478190104176" />
+          <ConnectorPoint PointX="3" PointY="8.7498478190104176" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_lKien_LoaiLK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.6711531575520837" />
+          <ConnectorPoint PointX="3" PointY="4.6711531575520837" />
+        </AssociationConnector>
+        <AssociationConnector Association="SaleModel.FK_lKienTon_lKien" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.0947762686298068" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="6.4108507035309277" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="6.528701833728686" />
+          <ConnectorPoint PointX="5.0625" PointY="6.6572762686298068" />
+          <ConnectorPoint PointX="5.0625" PointY="10.128326822916666" />
+          <ConnectorPoint PointX="5.25" PointY="10.128326822916666" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
