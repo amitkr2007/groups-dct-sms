@@ -55,5 +55,10 @@ namespace SaleManagement.API
                 this.tabControl1.SelectedIndex = value;
             }
         }
+
+        private void btnXuatHD_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
