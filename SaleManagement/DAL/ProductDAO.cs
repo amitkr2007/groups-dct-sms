@@ -133,5 +133,15 @@ namespace SaleManagement.DAL
                 throw ex;
             }
         }
+
+        public static List<LinhKien> GetAllProductEntity()
+        {
+            using (SaleEntities ctx = new SaleEntities())
+            {
+                var lst = from p in ctx.LinhKiens
+                          select p;
+                return lst.ToList();
+            }
+        }
     }
 }

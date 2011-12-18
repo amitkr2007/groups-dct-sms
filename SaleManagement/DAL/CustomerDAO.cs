@@ -21,6 +21,6 @@ namespace SaleManagement.DAL
             {
                 return data.KhachHangs.First(p=>p.MaKH.Equals(cusID));
             }
-        }
+        }        
     }
 }

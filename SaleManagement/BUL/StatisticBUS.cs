@@ -34,7 +34,9 @@ namespace SaleManagement.BUL
                            select ss.Date;
             if (lstDates != null && lstDates.Count() > 0)
             {
-                var obj = lst.SingleOrDefault(t => t.Date == lstDates.Max() && t.ProductID == pDto.ProductID);
+                //var obj = lst.SingleOrDefault(t => t.Date == lstDates.Max() && t.ProductID == pDto.ProductID);
+                var lstTemp = lst.Where(t => t.Date == lstDates.Max() && t.ProductID == pDto.ProductID);
+                var obj = lstTemp == null ? null : lstTemp.First();
                 ps.Quantity = obj != null ? obj.Quantity : 0;
             }
             else

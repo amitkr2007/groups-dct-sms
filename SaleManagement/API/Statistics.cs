@@ -39,7 +39,7 @@ namespace SaleManagement.API
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var lstSearch = from p in lstProduct
-                            where p.ProductCode.Contains(txtKeySearch.Text.Trim()) || p.ProductName.Contains(txtKeySearch.Text.Trim())
+                            where p.ProductCode.ToLower().Contains(txtKeySearch.Text.Trim().ToLower()) || p.ProductName.ToLower().Contains(txtKeySearch.Text.Trim().ToLower())
                             select p;
             dgProducts.DataSource = lstSearch.ToList();
         }
