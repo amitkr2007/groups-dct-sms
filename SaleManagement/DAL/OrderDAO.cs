@@ -16,6 +16,25 @@ namespace SaleManagement.DAL
                             h.MaHoaDon == ct.MaHoaDon
                       select ct;
             return lst.ToList();
-        }        
+        }
+
+        public static List<ChiTietHoaDon> GetOrderDetails(string OrderID)
+        {
+            using (SaleEntities ctx = new SaleEntities())
+            {
+                var lst = from c in ctx.ChiTietHoaDons
+                          where c.MaHoaDon == OrderID
+                          select c;
+                return lst.ToList();
+            }
+        }
+
+        public static HoaDon GetInvoiceByID(string orderID)
+        {
+            using (SaleEntities ctx = new SaleEntities())
+            {
+                return ctx.HoaDons.SingleOrDefault(h => h.MaHoaDon == orderID);
+            }
+        }
     }
 }

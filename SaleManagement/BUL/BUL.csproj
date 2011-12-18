@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InvoiceBUS.cs" />
+    <Compile Include="ProductOnOrder.cs" />
     <Compile Include="ProductStatistic.cs" />
     <Compile Include="SearchingBUS.cs" />
     <Compile Include="StatisticBUS.cs" />

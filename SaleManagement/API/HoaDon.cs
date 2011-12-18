@@ -17,14 +17,15 @@ namespace SaleManagement.API
         public frmHoaDon()
         {
             InitializeComponent();
+            this.grdInvoice.AutoGenerateColumns = false;
+            this.grdProduct.AutoGenerateColumns = false;
             _InvoicePresenter = new InvoiceBUS();
             this.AutoLoadData();
         }
 
         public void AutoLoadData()
         {
-            
-            this.grdInvoice.AutoGenerateColumns = false;
+            cbxTrangThai.SelectedIndex = 0;
             this.grdInvoice.DataSource = _InvoicePresenter.GetListInvoice();
         }
 
@@ -35,8 +36,15 @@ namespace SaleManagement.API
             dtOutputDate.Value = invoie.NgayGiao.Value;
             dtPostingDate.Value = invoie.NgayLap.Value;
             txtMaKH.Text = invoie.MaKH;
+            bntXuatHD.Enabled = !(bool)invoie.TrangThai;
+            chkStatus.Checked = (bool)invoie.TrangThai;
+            CustomerDAO cus = new CustomerDAO();
+            txtTenKH.Text = cus.GetByID(invoie.MaKH).TenKH;
             txtTenKH.Text = _InvoicePresenter.GetCustomerByID(invoie.MaKH).TenKH;
-            this.grdProduct.DataSource = _InvoicePresenter.GetInvoidDetailByInviceID(invoie.MaHoaDon);
+            var lst = InvoiceBUS.GetProductsOnOrder(invoie.MaHoaDon);
+            this.grdProduct.DataSource = lst;
+            txtCount.Text = lst.Sum(r => r.Quantity).ToString();
+            txtTT.Text = lst.Sum(r => r.Amount).ToString();
         }
 
         private void grdProduct_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -44,21 +52,30 @@ namespace SaleManagement.API
             this.grdProduct["TT", e.RowIndex].Value = (decimal)this.grdProduct["GiaSanPham", e.RowIndex].Value * (decimal)this.grdProduct["SoLuongBan", e.RowIndex].Value;
         }
 
-        public override int TabID
-        {
-            get
-            {
-                return this.tabControl1.SelectedIndex;
-            }
-            set
-            {
-                this.tabControl1.SelectedIndex = value;
-            }
-        }
-
         private void btnXuatHD_Click(object sender, EventArgs e)
         {
+            //if (InvoiceBUS.CheckEnoughQuantity() == 0)
+            //{
+                
+            InvoiceBUS.CheckOutInvoice(txtMaHD.Text);
+            //}
+        }
 
+        private void cbxTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var lst = _InvoicePresenter.GetListInvoice();
+            switch (cbxTrangThai.SelectedIndex)
+            {
+                case 0:
+                    grdInvoice.DataSource = lst;
+                    break;
+                case 1:
+                    grdInvoice.DataSource = lst.Where(i => i.TrangThai == false).ToList();
+                    break;
+                case 2:
+                    grdInvoice.DataSource = lst.Where(i => i.TrangThai == true).ToList();
+                    break;
+            }
         }
     }
 }
