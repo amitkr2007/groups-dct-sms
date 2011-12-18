@@ -17,35 +17,6 @@ namespace SaleManagement.BUL
             {
                 result.Add(StatisticBUS.CreateStatisticObj(item, lst, date));
             }
-            //var maxDate = (from ss in lst
-            //               where ss.Date <= date && ss.ProductID == id
-            //               select ss.Date).Max();
-            //if (lst == null)
-            //{
-            //    return null;
-            //}
-            //var maxDate1 = from a in lstobj
-            //                   where a.ProductID == id && a.Date <= date
-                               //select a;
-            //var lstDate = lstobj.Select(d => d.Date);
-
-            //var maxDate = lstobj.Max(o => o.Date);
-            //foreach (var item in lstDate)
-            //{
-            //    if (maxDate <= item)
-            //    {
-            //        maxDate = item;
-            //    }
-            //}
-            //var obj = lst.SingleOrDefault(t => t.Date == maxDate && t.ProductID == id);
-            //ProductStatistic ps = new ProductStatistic();
-            //ps.ProductID = obj.ProductID;
-            //ps.Quantity = obj.Quantity;
-            //ProductDTO p = ProductDAO.GetProductByID(id);
-            //ps.ProductCode = p.ProductCode;
-            //ps.ProductName = p.ProductName;
-            //ps.Description = p.Description;
-            //result.Add(ps);
             return result;
         }
 
@@ -71,6 +42,25 @@ namespace SaleManagement.BUL
                 ps.Quantity = 0;
             }
             return ps;
+        }
+
+        public static object GetProductSoldByPeriodTimeAndCategory(string categoryID, DateTime fromDate, DateTime toDate)
+        {
+            List<ChiTietHoaDon> lstct = OrderDAO.GetAllProductSoldByPeriodTime(fromDate, toDate);
+            List<ProductDTO> lstProducts = ProductDAO.GetProductsByCategoryID(categoryID);
+            var lstResult = from ct in lstct group ct by ct.ID into g
+                             from kq in g
+                             join pr in lstProducts on kq.ID equals pr.ProductID
+                             select new {
+                                 g.Key,
+                                 pr.ProductCode,
+                                 pr.ProductName,
+                                 pr.Category.CategoryName,
+                                 pr.Description,
+                                 Quantity = g.Sum(p=>p.SoLuongBan),
+                                 Amount= g.Sum(p=>p.GiaSanPham*p.SoLuongBan)
+                             };
+            return lstResult.Distinct().ToList();
         }
     }
 }

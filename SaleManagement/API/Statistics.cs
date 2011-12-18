@@ -11,7 +11,7 @@ using SaleManagement.DTO;
 
 namespace SaleManagement.API
 {
-    public partial class frmStatistics : Form
+    public partial class frmStatistics : FormBase
     {
         private List<ProductDTO> lstProduct = null;
         //private BindingSource pbind = new BindingSource();
@@ -21,6 +21,7 @@ namespace SaleManagement.API
             InitializeComponent();
             dgProducts.AutoGenerateColumns = false;
             dgSatisticsResult.AutoGenerateColumns = false;
+            grdResult.AutoGenerateColumns = false;
             lstProduct = ListItemsManagerBUS.GetAllProducts();
             //pbind = ConvertListToBindingSource(lstProduct);
         }
@@ -32,6 +33,7 @@ namespace SaleManagement.API
             List<CategoryDTO> lstCates = ListItemsManagerBUS.GetAllCategories();
             lstCates.Insert(0, new CategoryDTO() { CategoryName = "All" });
             cmbCategories.DataSource = lstCates;
+            cmbCategory.DataSource = lstCates;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -70,11 +72,6 @@ namespace SaleManagement.API
             txtKeySearch.Text = string.Empty;
         }
 
-        private void dgSatisticsResult_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         public BindingSource ConvertListToBindingSource(List<ProductDTO> lst)
         {
             BindingSource bs = new BindingSource();
@@ -83,6 +80,25 @@ namespace SaleManagement.API
                 bs.Add(item);
             }
             return bs;
+        }
+
+        private void bntStatistic_Click(object sender, EventArgs e)
+        {
+            CategoryDTO cate = cmbCategory.SelectedItem as CategoryDTO;
+            var data = StatisticBUS.GetProductSoldByPeriodTimeAndCategory(cate.CategoryID,dtpFromDate.Value, dtpToDate.Value);
+            grdResult.DataSource = data;
+        }
+
+        public override int TabID
+        {
+            get
+            {
+                return tabControl1.TabIndex;
+            }
+            set
+            {
+                tabControl1.SelectedIndex = value;
+            }
         }
     }
 }
