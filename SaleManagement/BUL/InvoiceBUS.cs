@@ -55,6 +55,7 @@ namespace SaleManagement.BUL
 	        {
                 WarehouseDAO.InsertSoredStatus((DateTime)ord.NgayGiao, item.ID, (int)item.SoLuongBan);
 	        }
+            OrderDAO.CheckOutOrder(orderID, true);
         }
 
         private static int GetQuantityInWarehouse(int productID)
