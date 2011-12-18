@@ -16,6 +16,6 @@ namespace SaleManagement.DAL
                             h.MaHoaDon == ct.MaHoaDon
                       select ct;
             return lst.ToList();
-        }
+        }        
     }
 }
