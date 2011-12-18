@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.Objects;
 
 namespace SaleManagement.DAL
 {
@@ -34,6 +36,40 @@ namespace SaleManagement.DAL
             using (SaleEntities ctx = new SaleEntities())
             {
                 return ctx.HoaDons.SingleOrDefault(h => h.MaHoaDon == orderID);
+            }
+        }
+
+        public static void CheckOutOrder(string orderID, bool status)
+        {
+            using (SaleEntities ctx = new SaleEntities())
+            {
+                try
+                {
+                    HoaDon a = ctx.HoaDons.SingleOrDefault(c => c.MaHoaDon == orderID);
+                    if (a != null)
+                    {
+                        a.TrangThai = status;
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new ArgumentNullException("Không thể cập nhật đối tượng = null");
+                    }
+                }
+                catch (OptimisticConcurrencyException)
+                {
+                    ctx.Refresh(RefreshMode.ClientWins, ctx.LoaiLinhKiens);
+                    ctx.SaveChanges();
+                }
+                catch (UpdateException)
+                {
+                    ctx.Refresh(RefreshMode.StoreWins, ctx.LoaiLinhKiens);
+                    throw new UpdateException("Updating Error");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
     }
