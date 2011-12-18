@@ -31,7 +31,7 @@ namespace SaleManagement.API
             dgProducts.DataSource = lstProduct;
             //dgProducts.DataSource = pbind;
             List<CategoryDTO> lstCates = ListItemsManagerBUS.GetAllCategories();
-            lstCates.Insert(0, new CategoryDTO() { CategoryName = "All" });
+            lstCates.Insert(0, new CategoryDTO() {CategoryID="All", CategoryName = "All" });
             cmbCategories.DataSource = lstCates;
             cmbCategory.DataSource = lstCates;
         }
@@ -85,8 +85,10 @@ namespace SaleManagement.API
         private void bntStatistic_Click(object sender, EventArgs e)
         {
             CategoryDTO cate = cmbCategory.SelectedItem as CategoryDTO;
-            var data = StatisticBUS.GetProductSoldByPeriodTimeAndCategory(cate.CategoryID,dtpFromDate.Value, dtpToDate.Value);
+            List<ProductStatistic> data = StatisticBUS.GetProductSoldByPeriodTimeAndCategory(cate.CategoryID, dtpFromDate.Value, dtpToDate.Value);
             grdResult.DataSource = data;
+            lblSumQuantity.Text = data.Select(r => r.Quantity).Sum().ToString();
+            lblSumAmount.Text = data.Select(r => r.Amount).Sum().ToString("#,###.##");
         }
 
         public override int TabID
@@ -99,6 +101,14 @@ namespace SaleManagement.API
             {
                 tabControl1.SelectedIndex = value;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<ProductStatistic> data = StatisticBUS.StatisticByQuantitySoldAndPeriodTime(dtpTuNgay.Value, dtpDenNgay.Value, Convert.ToInt32(quantityFrom.Value), Convert.ToInt32(QuantityTo.Value));
+            grdKetQua.DataSource = data;
+            lblTongSoLuong.Text = data.Select(r => r.Quantity).Sum().ToString();
+            lblTongTien.Text = data.Select(r => r.Amount).Sum().ToString("#,###.##");
         }
     }
 }
