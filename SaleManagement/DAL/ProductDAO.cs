@@ -38,6 +38,11 @@ namespace SaleManagement.DAL
             return ConverterDAO.ConvertEntityToDTO(lk);
         }
 
+        public static List<ProductDTO> GetProductsByCategoryID(string categoryID)
+        {
+            return ProductDAO.GetAllProducts().Where(p => p.Category.CategoryID == categoryID).ToList();
+        }
+
         public static void InsertNewProduct(ProductDTO cDto)
         {
             SaleEntities ctx = new SaleEntities();

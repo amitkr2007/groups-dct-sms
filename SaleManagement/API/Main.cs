@@ -61,9 +61,17 @@ namespace SaleManagement.API
 
         private void sảnPhẩmToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmStatistics frm = new frmStatistics();
-            frm.MdiParent = this;
-            frm.Show();
+            this.OpenForm(typeof(frmStatistics), 0);
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(typeof(frmStatistics), 1);
+        }
+
+        private void theoSảnPhẩmBánĐượcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(typeof(frmStatistics), 2);
         }
     }
 }
