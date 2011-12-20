@@ -143,5 +143,13 @@ namespace SaleManagement.DAL
                 return lst.ToList();
             }
         }
+
+        public static List<LinhKienTon> GetListTonKho()
+        {
+            using (var data = new SaleEntities())
+            {
+                return data.LinhKienTons.ToList();
+            }
+        }
     }
 }

@@ -18,6 +18,13 @@ namespace SaleManagement.API
             InitializeComponent();
         }
 
+        IProduct _Product;
+        public frmSanPham(IProduct product)
+        {
+            InitializeComponent();
+            _Product = product;
+        }
+
         public void LoadProducts()
         {
             List<ProductDTO> lst = ListItemsManagerBUS.GetAllProducts();

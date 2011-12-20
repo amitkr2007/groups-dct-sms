@@ -152,12 +152,14 @@
             this.lậpPhiếuXuấtToolStripMenuItem.Name = "lậpPhiếuXuấtToolStripMenuItem";
             this.lậpPhiếuXuấtToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.lậpPhiếuXuấtToolStripMenuItem.Text = "Phiếu Nhập Mới";
+            this.lậpPhiếuXuấtToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtToolStripMenuItem_Click);
             // 
             // quảnLýPhiếuXuấtToolStripMenuItem
             // 
             this.quảnLýPhiếuXuấtToolStripMenuItem.Name = "quảnLýPhiếuXuấtToolStripMenuItem";
             this.quảnLýPhiếuXuấtToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.quảnLýPhiếuXuấtToolStripMenuItem.Text = "Quản Lý Phiếu Nhập";
+            this.quảnLýPhiếuXuấtToolStripMenuItem.Click += new System.EventHandler(this.quảnLýPhiếuXuấtToolStripMenuItem_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
