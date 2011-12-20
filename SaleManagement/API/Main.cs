@@ -73,5 +73,15 @@ namespace SaleManagement.API
         {
             this.OpenForm(typeof(frmStatistics), 2);
         }
+
+        private void lậpPhiếuXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(typeof(frmPhieuNhap), 0);
+        }
+
+        private void quảnLýPhiếuXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OpenForm(typeof(frmPhieuNhap), 1);
+        }
     }
 }
