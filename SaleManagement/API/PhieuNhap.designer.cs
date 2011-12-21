@@ -1,6 +1,6 @@
 ﻿namespace SaleManagement.API
 {
-    partial class frmPhieuNhap
+    partial class frmPhieuNhap : FormBase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -50,6 +51,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdProduct = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtKey = new System.Windows.Forms.TextBox();
@@ -75,12 +82,6 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -235,6 +236,8 @@
             // 
             // grdProductNhap
             // 
+            this.grdProductNhap.AllowUserToAddRows = false;
+            this.grdProductNhap.AllowUserToDeleteRows = false;
             this.grdProductNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProductNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -321,6 +324,7 @@
             // 
             // grdProduct
             // 
+            this.grdProduct.AllowUserToAddRows = false;
             this.grdProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
@@ -334,6 +338,49 @@
             this.grdProduct.Name = "grdProduct";
             this.grdProduct.Size = new System.Drawing.Size(458, 306);
             this.grdProduct.TabIndex = 0;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.DataPropertyName = "Checked";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "False";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column3.HeaderText = "";
+            this.Column3.Name = "Column3";
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column3.Width = 19;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "MaLKien";
+            this.ID.HeaderText = "Mã Linh Kiện";
+            this.ID.Name = "ID";
+            // 
+            // NamePro
+            // 
+            this.NamePro.DataPropertyName = "TenLinhKien";
+            this.NamePro.HeaderText = "Tên Linh Kiện";
+            this.NamePro.Name = "NamePro";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "GiaBan";
+            this.Price.HeaderText = "Giá bán";
+            this.Price.Name = "Price";
+            // 
+            // SL
+            // 
+            this.SL.DataPropertyName = "SoLuongTon";
+            this.SL.HeaderText = "Số lượng tồn";
+            this.SL.Name = "SL";
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "ThongTinThem";
+            this.Description.HeaderText = "Thông tin thêm";
+            this.Description.Name = "Description";
             // 
             // groupBox1
             // 
@@ -577,45 +624,6 @@
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách phiếu nhập";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "";
-            this.Column3.Name = "Column3";
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column3.Width = 21;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "MaLKien";
-            this.ID.HeaderText = "Mã Linh Kiện";
-            this.ID.Name = "ID";
-            // 
-            // NamePro
-            // 
-            this.NamePro.DataPropertyName = "TenLinhKien";
-            this.NamePro.HeaderText = "Tên Linh Kiện";
-            this.NamePro.Name = "NamePro";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaBan";
-            this.Price.HeaderText = "Giá bán";
-            this.Price.Name = "Price";
-            // 
-            // SL
-            // 
-            this.SL.DataPropertyName = "SoLuongTon";
-            this.SL.HeaderText = "Số lượng tồn";
-            this.SL.Name = "SL";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "ThongTinThem";
-            this.Description.HeaderText = "Thông tin thêm";
-            this.Description.Name = "Description";
             // 
             // frmPhieuNhap
             // 

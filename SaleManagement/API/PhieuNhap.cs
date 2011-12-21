@@ -12,12 +12,13 @@ using SaleManagement.DTO;
 
 namespace SaleManagement.API
 {
-    public partial class frmPhieuNhap : FormBase, IProduct
+    public partial class frmPhieuNhap : FormBase , IProduct
     {
         public frmPhieuNhap()
         {
             InitializeComponent();
             this.grdProduct.AutoGenerateColumns = false;
+            this.grdProductNhap.AutoGenerateColumns = false;
             this.GetProductList();
         }
 
@@ -47,6 +48,7 @@ namespace SaleManagement.API
                               SoLuongTon = (kk==null)? 0 : kk.First().SoLuongTon.Value
                           };
             ProductList = lstitem.ToList();
+            grdProduct.DataSource = ProductList;
         }
 
         private void btnSPMoi_Click(object sender, EventArgs e)
@@ -57,44 +59,41 @@ namespace SaleManagement.API
             sp.ShowDialog();
         }
 
-
-        public List<LinhKienNhap> ProductList
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            get
-            {
-                return grdProduct.DataSource as List<LinhKienNhap>;
-            }
-            set
-            {
-                grdProduct.DataSource = value;
-            }
-        }
 
-        public List<LinhKienNhap> ProductListNhap
-        {
-            get
-            {
-                return grdProductNhap.DataSource as List<LinhKienNhap>;
-            }
-            set
-            {
-                grdProductNhap.DataSource = value;
-            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            var data = (grdProduct.DataSource as List<LinhKienNhap>).Where(p => p.Checked);
+            ProductNhapList.AddRange(data);
+            grdProductNhap.DataSource = ProductNhapList;
+            ProductList.RemoveAll(p => data.Contains(p));
+            grdProduct.DataSource = ProductList;
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
+        public List<LinhKienNhap> ProductList { get; set; }
 
+        List<LinhKienNhap> _ProductNhapList;
+        public List<LinhKienNhap> ProductNhapList 
+        { 
+            get 
+            {
+                if (_ProductNhapList == null) 
+                    return new List<LinhKienNhap>();
+                return _ProductNhapList; 
+            } 
+            set 
+            {
+                _ProductNhapList = value; 
+            } 
         }
     }
 
     public class LinhKienNhap : LinhKien
     {
+        public bool Checked { get; set; }
         public int SoLuongTon { get; set; }
         public int GiaNhap { get; set; }
         public int Soluong { get; set; }
