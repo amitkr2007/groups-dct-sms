@@ -1,6 +1,6 @@
 ﻿namespace SaleManagement.API
 {
-    partial class frmPhieuNhap : FormBase
+    partial class frmPhieuNhap : FormBase, IProduct
     {
         /// <summary>
         /// Required designer variable.
