@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.Data;
+using System.Data.Objects;
 
 namespace SaleManagement.DAL
 {
@@ -35,21 +37,31 @@ namespace SaleManagement.DAL
                                     ct.SoLuongBan,
                                     TT = ct.GiaSanPham * ct.SoLuongBan
                                 };
-                //foreach (var item in invoiceDetailList)
-                //{
-                //    productList.Add(product.GetProductById(item.ID));
-                //}
-                //var result = from pro in productList
-                //             from invoi in invoiceDetailList
-                //             select new { 
-                //                 pro.TenLinhKien,
-                //                 invoi.GiaSanPham,
-                //                 invoi.SoLuongBan,
-                //                 TT=invoi.GiaSanPham * invoi.SoLuongBan
-                //             };
-                ////return result.Distinct().ToList();
-                //var lst = result.Distinct().ToList();
                 return lstresult.ToList();
+            }
+        }
+
+        public static void InsertImportVoucher(PhieuNhap pn)
+        {
+            SaleEntities ctx = new SaleEntities();
+            try
+            {
+                ctx.AddToPhieuNhaps(pn);
+                ctx.SaveChanges();
+            }
+            catch (OptimisticConcurrencyException)
+            {
+                ctx.Refresh(RefreshMode.ClientWins, ctx.LoaiLinhKiens);
+                ctx.SaveChanges();
+            }
+            catch (UpdateException)
+            {
+                ctx.Refresh(RefreshMode.StoreWins, ctx.LoaiLinhKiens);
+                throw new UpdateException("Saving Error");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

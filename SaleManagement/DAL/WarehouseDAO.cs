@@ -28,29 +28,49 @@ namespace SaleManagement.DAL
             return result;
         }
 
+        private static int GetQuantityInWarehouse(int productID)
+        {
+            var lst = WarehouseDAO.GetAllLinhKienTons();
+            var check = lst.Where(t => t.ID == productID);
+            if (check == null || check.Count() <= 0) return 0;
+            var maxDate = (from tt in lst
+                           where tt.ID == productID
+                           select tt.Ngay).Max();
+            var objt = lst.SingleOrDefault(t => t.Ngay == maxDate && t.ID == productID);
+            if (objt == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)objt.SoLuongTon;
+            }
+        }
+
         public static void InsertSoredStatus(DateTime date, int productID, int quantity)
         {
             using (SaleEntities ctx = new SaleEntities())
             {
                 try
                 {
-                    var maxDate = (from tt in ctx.LinhKienTons
-                                   where tt.ID == productID
-                                   select tt.Ngay).Max();
-                    var objt = ctx.LinhKienTons.SingleOrDefault(t => t.Ngay == maxDate && t.ID == productID);
+                    //var maxDate = (from tt in ctx.LinhKienTons
+                    //               where tt.ID == productID
+                    //               select tt.Ngay).Max();
+                    //var objt = ctx.LinhKienTons.SingleOrDefault(t => t.Ngay == maxDate && t.ID == productID);
                     LinhKienTon tk = new LinhKienTon();
-                    if (objt == null)
-                    {
+                    //if (objt == null)
+                    //{
+                    //    tk.Ngay = date;
+                    //    tk.ID = productID;
+                    //    tk.SoLuongTon = quantity;
+                    //}
+                    //else
+                    //{
+                    //int soLuongTon = WarehouseDAO.GetQuantityInWarehouse(productID);
                         tk.Ngay = date;
                         tk.ID = productID;
                         tk.SoLuongTon = quantity;
-                    }
-                    else
-                    {
-                        tk.Ngay = date;
-                        tk.ID = productID;
-                        tk.SoLuongTon = objt.SoLuongTon - quantity;
-                    }
+                    //}
                     ctx.AddToLinhKienTons(tk);
                     ctx.SaveChanges();
                 }
