@@ -63,7 +63,6 @@
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="IProduct.cs" />
     <Compile Include="KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
