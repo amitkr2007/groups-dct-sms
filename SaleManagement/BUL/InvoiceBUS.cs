@@ -53,25 +53,29 @@ namespace SaleManagement.BUL
             var lstdt = OrderDAO.GetOrderDetails(orderID);
             foreach (var item in lstdt)
 	        {
-                WarehouseDAO.InsertSoredStatus((DateTime)ord.NgayGiao, item.ID, (int)item.SoLuongBan);
+                int oldQuantity = InvoiceBUS.GetQuantityInWarehouse(item.ID);
+                int newQuantity = oldQuantity - (int)item.SoLuongBan;
+                WarehouseDAO.InsertSoredStatus((DateTime)ord.NgayGiao, item.ID, newQuantity);
 	        }
             OrderDAO.CheckOutOrder(orderID, true);
         }
 
-        private static int GetQuantityInWarehouse(int productID)
+        public static int GetQuantityInWarehouse(int productID)
         {
             var lst = WarehouseDAO.GetAllLinhKienTons();
+            var check = lst.Where(t => t.ID == productID);
+            if (check == null || check.Count() <= 0) return 0;
             var maxDate = (from tt in lst
                            where tt.ID == productID
                            select tt.Ngay).Max();
-            var objt = lst.SingleOrDefault(t => t.Ngay == maxDate && t.ID == productID);
+            var objt = lst.Where(t => t.Ngay == maxDate && t.ID == productID);
             if (objt == null)
             {
                 return 0;
             }
             else
             {
-                return (int)objt.SoLuongTon;
+                return (int)objt.Last().SoLuongTon;
             }
         }
 
@@ -79,6 +83,39 @@ namespace SaleManagement.BUL
         {
             int slton = InvoiceBUS.GetQuantityInWarehouse(productID);
             return slton < quantity ? slton : 0;
+        }
+
+        public static void InsertImportVoucher(ImportVoucher saveObj)
+        {
+            try
+            {
+                PhieuNhap pn = new PhieuNhap();
+                pn.MaPhieuNhap = saveObj.VoucherID;
+                pn.NgayLap = saveObj.CreatedDate;
+                pn.GhiChu = saveObj.Description;
+                pn.ChiTietPhieuNhaps = new System.Data.Objects.DataClasses.EntityCollection<ChiTietPhieuNhap>();
+                foreach (var item in saveObj.lstDetails)
+                {
+                    ChiTietPhieuNhap ctpn = new ChiTietPhieuNhap();
+                    ctpn.MaPhieuNhap = saveObj.VoucherID;
+                    ctpn.ID = item.ProductID;
+                    ctpn.SoLuongNhap = item.Quantity;
+                    ctpn.GiaNhap = item.Price;
+                    pn.ChiTietPhieuNhaps.Add(ctpn);
+                }
+                ImportVoucherDAO.InsertImportVoucher(pn);
+
+                foreach (var item in saveObj.lstDetails)
+                {
+                    int oldQuantity = InvoiceBUS.GetQuantityInWarehouse(item.ProductID);
+                    int newQuantity = oldQuantity + item.Quantity;
+                    WarehouseDAO.InsertSoredStatus(saveObj.CreatedDate, item.ProductID, newQuantity);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
