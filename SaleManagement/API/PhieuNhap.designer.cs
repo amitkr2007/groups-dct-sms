@@ -28,39 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSPMoi = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtGhiChu = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.grdProductNhap = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMaPhieu = new System.Windows.Forms.TextBox();
             this.txtDC = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.grdProduct = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgProducts = new System.Windows.Forms.DataGridView();
+            this.clmCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.cbxHSXSearch = new System.Windows.Forms.ComboBox();
+            this.txtKeySearch = new System.Windows.Forms.TextBox();
+            this.cmbCategories = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -88,7 +86,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProductNhap)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -114,7 +112,6 @@
             this.tabPage1.Controls.Add(this.btnLuu);
             this.tabPage1.Controls.Add(this.btnRemove);
             this.tabPage1.Controls.Add(this.btnAdd);
-            this.tabPage1.Controls.Add(this.btnSPMoi);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -129,7 +126,7 @@
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThoat.ForeColor = System.Drawing.Color.Navy;
-            this.btnThoat.Location = new System.Drawing.Point(854, 476);
+            this.btnThoat.Location = new System.Drawing.Point(899, 467);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 21;
@@ -140,28 +137,28 @@
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLuu.ForeColor = System.Drawing.Color.Navy;
-            this.btnLuu.Location = new System.Drawing.Point(755, 476);
+            this.btnLuu.Location = new System.Drawing.Point(804, 467);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 22;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.ForeColor = System.Drawing.Color.Navy;
-            this.btnRemove.Location = new System.Drawing.Point(492, 253);
+            this.btnRemove.Location = new System.Drawing.Point(327, 157);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 23);
             this.btnRemove.TabIndex = 15;
             this.btnRemove.Text = "<<";
             this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.ForeColor = System.Drawing.Color.Navy;
-            this.btnAdd.Location = new System.Drawing.Point(492, 224);
+            this.btnAdd.Location = new System.Drawing.Point(327, 128);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 16;
@@ -169,53 +166,44 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSPMoi
-            // 
-            this.btnSPMoi.ForeColor = System.Drawing.Color.Navy;
-            this.btnSPMoi.Location = new System.Drawing.Point(619, 476);
-            this.btnSPMoi.Name = "btnSPMoi";
-            this.btnSPMoi.Size = new System.Drawing.Size(103, 23);
-            this.btnSPMoi.TabIndex = 14;
-            this.btnSPMoi.Text = "Sản Phẩm Mới";
-            this.btnSPMoi.UseVisualStyleBackColor = true;
-            this.btnSPMoi.Click += new System.EventHandler(this.btnSPMoi_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.richTextBox1);
+            this.groupBox4.Controls.Add(this.txtGhiChu);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.groupBox5);
+            this.groupBox4.Controls.Add(this.txtMaPhieu);
             this.groupBox4.Controls.Add(this.txtDC);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.dtpNgayNhap);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox4.Location = new System.Drawing.Point(583, 33);
+            this.groupBox4.Location = new System.Drawing.Point(408, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(373, 428);
+            this.groupBox4.Size = new System.Drawing.Size(566, 443);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chi tiết phiếu nhập";
             // 
-            // richTextBox1
+            // txtGhiChu
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.txtGhiChu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(40, 371);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(316, 43);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.txtGhiChu.Location = new System.Drawing.Point(20, 377);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(537, 49);
+            this.txtGhiChu.TabIndex = 5;
+            this.txtGhiChu.Text = "";
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(37, 355);
+            this.label7.Location = new System.Drawing.Point(17, 361);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 4;
@@ -227,9 +215,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.grdProductNhap);
-            this.groupBox5.Location = new System.Drawing.Point(36, 71);
+            this.groupBox5.Location = new System.Drawing.Point(17, 106);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(323, 277);
+            this.groupBox5.Size = new System.Drawing.Size(543, 252);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Danh sách sản phẩm";
@@ -241,59 +229,85 @@
             this.grdProductNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProductNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column3,
             this.Column2,
             this.Column4,
             this.Column5});
             this.grdProductNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdProductNhap.Location = new System.Drawing.Point(3, 16);
             this.grdProductNhap.Name = "grdProductNhap";
-            this.grdProductNhap.Size = new System.Drawing.Size(317, 258);
+            this.grdProductNhap.Size = new System.Drawing.Size(537, 233);
             this.grdProductNhap.TabIndex = 0;
+            this.grdProductNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdProductNhap_KeyPress);
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "ID";
+            this.Column1.DataPropertyName = "ProductID";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ProductCode";
+            this.Column3.HeaderText = "Mã sản phẩm";
+            this.Column3.Name = "Column3";
+            // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "TenLinhKien";
+            this.Column2.DataPropertyName = "ProductName";
             this.Column2.HeaderText = "Tên sản phẩm";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 200;
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "GiaNhap";
+            this.Column4.DataPropertyName = "Price";
             this.Column4.HeaderText = "Giá nhập";
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "SoLuongNhap";
+            this.Column5.DataPropertyName = "Quantity";
             this.Column5.HeaderText = "Số lượng";
             this.Column5.Name = "Column5";
             // 
+            // txtMaPhieu
+            // 
+            this.txtMaPhieu.Location = new System.Drawing.Point(91, 66);
+            this.txtMaPhieu.Name = "txtMaPhieu";
+            this.txtMaPhieu.Size = new System.Drawing.Size(263, 20);
+            this.txtMaPhieu.TabIndex = 2;
+            // 
             // txtDC
             // 
-            this.txtDC.Location = new System.Drawing.Point(136, 45);
+            this.txtDC.Location = new System.Drawing.Point(91, 40);
             this.txtDC.Name = "txtDC";
             this.txtDC.Size = new System.Drawing.Size(263, 20);
             this.txtDC.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // label5
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(136, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(263, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label5.Location = new System.Drawing.Point(6, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Mã phiếu nhập";
+            // 
+            // dtpNgayNhap
+            // 
+            this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayNhap.Location = new System.Drawing.Point(91, 14);
+            this.dtpNgayNhap.Name = "dtpNgayNhap";
+            this.dtpNgayNhap.Size = new System.Drawing.Size(263, 20);
+            this.dtpNgayNhap.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(90, 48);
+            this.label4.Location = new System.Drawing.Point(33, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 0;
@@ -303,7 +317,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(71, 25);
+            this.label3.Location = new System.Drawing.Point(14, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
@@ -313,86 +327,67 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.grdProduct);
+            this.groupBox2.Controls.Add(this.dgProducts);
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox2.Location = new System.Drawing.Point(20, 139);
+            this.groupBox2.Location = new System.Drawing.Point(6, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(464, 325);
+            this.groupBox2.Size = new System.Drawing.Size(315, 387);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách sản phẩm";
             // 
-            // grdProduct
+            // dgProducts
             // 
-            this.grdProduct.AllowUserToAddRows = false;
-            this.grdProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column3,
-            this.ID,
-            this.NamePro,
-            this.Price,
-            this.SL,
-            this.Description});
-            this.grdProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdProduct.Location = new System.Drawing.Point(3, 16);
-            this.grdProduct.Name = "grdProduct";
-            this.grdProduct.Size = new System.Drawing.Size(458, 306);
-            this.grdProduct.TabIndex = 0;
+            this.dgProducts.AllowUserToAddRows = false;
+            this.dgProducts.AllowUserToDeleteRows = false;
+            this.dgProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmCheck,
+            this.ProductCode,
+            this.clmProductName});
+            this.dgProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgProducts.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgProducts.Location = new System.Drawing.Point(3, 16);
+            this.dgProducts.Name = "dgProducts";
+            this.dgProducts.Size = new System.Drawing.Size(309, 368);
+            this.dgProducts.TabIndex = 4;
             // 
-            // Column3
+            // clmCheck
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.DataPropertyName = "Checked";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "False";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column3.HeaderText = "";
-            this.Column3.Name = "Column3";
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column3.Width = 19;
+            this.clmCheck.FalseValue = "false";
+            this.clmCheck.HeaderText = "Chọn";
+            this.clmCheck.Name = "clmCheck";
+            this.clmCheck.TrueValue = "true";
+            this.clmCheck.Width = 50;
             // 
-            // ID
+            // ProductCode
             // 
-            this.ID.DataPropertyName = "MaLKien";
-            this.ID.HeaderText = "Mã Linh Kiện";
-            this.ID.Name = "ID";
+            this.ProductCode.DataPropertyName = "ProductCode";
+            this.ProductCode.HeaderText = "Mã sản phẩm";
+            this.ProductCode.Name = "ProductCode";
+            this.ProductCode.ReadOnly = true;
+            this.ProductCode.Width = 105;
             // 
-            // NamePro
+            // clmProductName
             // 
-            this.NamePro.DataPropertyName = "TenLinhKien";
-            this.NamePro.HeaderText = "Tên Linh Kiện";
-            this.NamePro.Name = "NamePro";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaBan";
-            this.Price.HeaderText = "Giá bán";
-            this.Price.Name = "Price";
-            // 
-            // SL
-            // 
-            this.SL.DataPropertyName = "SoLuongTon";
-            this.SL.HeaderText = "Số lượng tồn";
-            this.SL.Name = "SL";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "ThongTinThem";
-            this.Description.HeaderText = "Thông tin thêm";
-            this.Description.Name = "Description";
+            this.clmProductName.DataPropertyName = "ProductName";
+            this.clmProductName.HeaderText = "Tên sản phẩm";
+            this.clmProductName.Name = "clmProductName";
+            this.clmProductName.ReadOnly = true;
+            this.clmProductName.Width = 300;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnTimKiem);
-            this.groupBox1.Controls.Add(this.txtKey);
-            this.groupBox1.Controls.Add(this.cbxHSXSearch);
+            this.groupBox1.Controls.Add(this.txtKeySearch);
+            this.groupBox1.Controls.Add(this.cmbCategories);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox1.Location = new System.Drawing.Point(20, 33);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 100);
+            this.groupBox1.Size = new System.Drawing.Size(315, 100);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
@@ -406,20 +401,22 @@
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
-            // txtKey
+            // txtKeySearch
             // 
-            this.txtKey.Location = new System.Drawing.Point(99, 36);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(203, 20);
-            this.txtKey.TabIndex = 4;
+            this.txtKeySearch.Location = new System.Drawing.Point(99, 36);
+            this.txtKeySearch.Name = "txtKeySearch";
+            this.txtKeySearch.Size = new System.Drawing.Size(203, 20);
+            this.txtKeySearch.TabIndex = 4;
+            this.txtKeySearch.TextChanged += new System.EventHandler(this.txtKeySearch_TextChanged);
             // 
-            // cbxHSXSearch
+            // cmbCategories
             // 
-            this.cbxHSXSearch.FormattingEnabled = true;
-            this.cbxHSXSearch.Location = new System.Drawing.Point(99, 11);
-            this.cbxHSXSearch.Name = "cbxHSXSearch";
-            this.cbxHSXSearch.Size = new System.Drawing.Size(203, 21);
-            this.cbxHSXSearch.TabIndex = 3;
+            this.cmbCategories.FormattingEnabled = true;
+            this.cmbCategories.Location = new System.Drawing.Point(99, 11);
+            this.cmbCategories.Name = "cmbCategories";
+            this.cmbCategories.Size = new System.Drawing.Size(203, 21);
+            this.cmbCategories.TabIndex = 3;
+            this.cmbCategories.SelectedIndexChanged += new System.EventHandler(this.cmbCategories_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -458,7 +455,7 @@
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.ForeColor = System.Drawing.Color.Navy;
-            this.btnSua.Location = new System.Drawing.Point(588, 460);
+            this.btnSua.Location = new System.Drawing.Point(529, 476);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 22;
@@ -634,6 +631,7 @@
             this.Name = "frmPhieuNhap";
             this.Text = "Phiếu Nhập";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPhieuNhap_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -641,7 +639,7 @@
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdProductNhap)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -661,21 +659,20 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSPMoi;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtGhiChu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView grdProductNhap;
         private System.Windows.Forms.TextBox txtDC;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.TextBox txtKey;
-        private System.Windows.Forms.ComboBox cbxHSXSearch;
+        private System.Windows.Forms.TextBox txtKeySearch;
+        private System.Windows.Forms.ComboBox cmbCategories;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -697,16 +694,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridView grdProduct;
+        private System.Windows.Forms.DataGridView dgProducts;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmProductName;
+        private System.Windows.Forms.TextBox txtMaPhieu;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NamePro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
     }
 }

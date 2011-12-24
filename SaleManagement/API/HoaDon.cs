@@ -54,11 +54,19 @@ namespace SaleManagement.API
 
         private void btnXuatHD_Click(object sender, EventArgs e)
         {
-            //if (InvoiceBUS.CheckEnoughQuantity() == 0)
-            //{
-                
-            InvoiceBUS.CheckOutInvoice(txtMaHD.Text);
-            //}
+            try
+            {
+                //if (InvoiceBUS.CheckEnoughQuantity() == 0)
+                //{
+
+                InvoiceBUS.CheckOutInvoice(txtMaHD.Text);
+                MessageBox.Show("Thành công", "Sell Management", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thành công\nLỗi : " + ex.Message, "Sell Management", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cbxTrangThai_SelectedIndexChanged(object sender, EventArgs e)

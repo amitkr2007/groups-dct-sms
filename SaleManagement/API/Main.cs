@@ -83,5 +83,22 @@ namespace SaleManagement.API
         {
             this.OpenForm(typeof(frmPhieuNhap), 1);
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            frmDangNhap frm = new frmDangNhap();
+            frm.ShowDialog(this);
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.MdiChildren.Length; i++)
+            {
+                this.MdiChildren[i].WindowState = FormWindowState.Normal;
+                this.MdiChildren[i].Close();
+            }
+            frmDangNhap frm = new frmDangNhap();
+            frm.ShowDialog(this);
+        }
     }
 }
