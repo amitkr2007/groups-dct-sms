@@ -1,0 +1,8 @@
+D:\SMS\SMS.Lib.UI\bin\Debug\SMS.Lib.UI.dll
+D:\SMS\SMS.Lib.UI\bin\Debug\SMS.Lib.UI.pdb
+D:\SMS\SMS.Lib.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\SMS\SMS.Lib.UI\obj\Debug\SMS.Lib.UI.dll
+D:\SMS\SMS.Lib.UI\obj\Debug\SMS.Lib.UI.pdb
+D:\SMS\SMS.Lib.UI\obj\Debug\SMS.Lib.UI_MarkupCompile.cache
+D:\SMS\SMS.Lib.UI\obj\Debug\SMS.Lib.UI.g.resources
+D:\SMS\SMS.Lib.UI\obj\Debug\WPF\Skins\MainBase.baml
