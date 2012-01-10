@@ -9,8 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using GROUP.Framework;
-using GROUP.Framework.Resources;
 using System;
 using System.Diagnostics;
 using System.Windows;
