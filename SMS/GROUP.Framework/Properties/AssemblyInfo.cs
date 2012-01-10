@@ -3,6 +3,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Markup;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -53,3 +54,16 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.Resources")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.Themes")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.Utilities")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Windows")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Controls")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Commands")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Adorners")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Behaviors")]
+[assembly: XmlnsDefinitionAttribute("http://solutiongroups.com/framework", "GROUP.Framework.UI.Extentions")]
+
