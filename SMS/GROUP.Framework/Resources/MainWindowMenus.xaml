@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Resources="clr-namespace:GROUP.Framework.Resources">
+    <Menu x:Key="MainWindowMenus"
+          Background="Transparent"
+          VerticalAlignment="Center"
+          DockPanel.Dock="Left"
+          HorizontalAlignment="Left"
+          Margin="8,0,0,0">
+        <MenuItem Header="{x:Static Resources:EnglishLanguage.FileMenu}">
+            <MenuItem Header="{x:Static Resources:EnglishLanguage.FileNewMenu}">
+                <MenuItem Header="{x:Static Resources:EnglishLanguage.ProjectMenu}" Command="{Binding NewProject}"/>
+                <MenuItem Header="{x:Static Resources:EnglishLanguage.IterationMenu}" Command="{Binding Iteration}"/>
+            </MenuItem>
+            <Separator />
+            <MenuItem Header="{x:Static Resources:EnglishLanguage.ExitMenu}" Command="{Binding ExitCommand}"/>
+        </MenuItem>
+    </Menu>
+</ResourceDictionary>
