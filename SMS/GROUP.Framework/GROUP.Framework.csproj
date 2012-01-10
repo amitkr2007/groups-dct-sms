@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -49,7 +50,46 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\EnglishLanguage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishLanguage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Adorners\AdornerBase.cs" />
+    <Compile Include="UI\Adorners\ContentAdornerBase.cs" />
+    <Compile Include="UI\Adorners\ResizingAdorner.cs" />
+    <Compile Include="UI\Commands\CommandBase.cs" />
+    <Compile Include="UI\Extentions\FrameworkElementExtensions.cs" />
+    <Compile Include="UI\Windows\DockPane.cs" />
     <Compile Include="UI\Windows\WindowBase.cs" />
+    <Compile Include="UI\Windows\WindowsManager.xaml.cs">
+      <DependentUpon>WindowsManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Validate.cs" />
+    <Page Include="Resources\MainWindowMenus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DockIllustrationAdorner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DockPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -57,6 +97,42 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ResizableAdorner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TabItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Text.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ToolTips.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WindowParts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WindowsManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -76,11 +152,40 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\EnglishLanguage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnglishLanguage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SplashScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Close.png" />
+    <Resource Include="Resources\DockBottom.png" />
+    <Resource Include="Resources\DockCenter.png" />
+    <Resource Include="Resources\DockHexagon.png" />
+    <Resource Include="Resources\DockLeft.png" />
+    <Resource Include="Resources\DockRight.png" />
+    <Resource Include="Resources\DockTop.png" />
+    <Resource Include="Resources\Error.png" />
+    <Resource Include="Resources\Maximize.png" />
+    <Resource Include="Resources\Minimize.png" />
+    <Resource Include="Resources\NewProject.png" />
+    <Resource Include="Resources\Restore.png" />
+    <Resource Include="Resources\SplitBottom.png" />
+    <Resource Include="Resources\SplitLeft.PNG" />
+    <Resource Include="Resources\SplitRight.png" />
+    <Resource Include="Resources\SplitTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Behaviors\" />
+    <Folder Include="UI\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
