@@ -1,8 +1,0 @@
-﻿<Window x:Class="SMS.Console.MainView.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" xmlns:my="clr-namespace:MT.Framework;assembly=MT.Framework">
-    <Grid>
-        <my:UserControl1 HorizontalAlignment="Left" Name="userControl11" VerticalAlignment="Top" Width="503" Height="311" />
-    </Grid>
-</Window>
