@@ -9,8 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using GROUP.Framework;
-using GROUP.Framework.Resources;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -33,14 +31,117 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace GROUP.Framework.UI.Windows {
-    
-    
+namespace GROUP.Framework.UI.Windows 
+{
     /// <summary>
     /// WindowsManager
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
-    public partial class WindowsManager : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
+    public partial class WindowsManager : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector 
+    {
+        #line 10 "..\..\..\Windows\WindowsManager.xaml"
+                internal MixModes.Synergy.VisualFramework.Windows.WindowsManager UserControl;
+
+        #line default
+        #line hidden
+
+
+        #line 46 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.Grid LayoutRoot;
+
+        #line default
+        #line hidden
+
+
+        #line 53 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.StackPanel TopWindowHeaders;
+
+        #line default
+        #line hidden
+
+
+        #line 59 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.StackPanel LeftWindowHeaders;
+
+        #line default
+        #line hidden
+
+
+        #line 64 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.StackPanel RightWindowHeaders;
+
+        #line default
+        #line hidden
+
+
+        #line 69 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.StackPanel BottomWindowHeaders;
+
+        #line default
+        #line hidden
+
+
+        #line 77 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel LeftPinnedWindows;
+
+        #line default
+        #line hidden
+
+
+        #line 82 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel RightPinnedWindows;
+
+        #line default
+        #line hidden
+
+
+        #line 87 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel TopPinnedWindows;
+
+        #line default
+        #line hidden
+
+
+        #line 92 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel BottomPinnedWindows;
+
+        #line default
+        #line hidden
+
+
+        #line 99 "..\..\..\Windows\WindowsManager.xaml"
+                internal MixModes.Synergy.VisualFramework.Windows.DocumentContainer DocumentContainer;
+
+        #line default
+        #line hidden
+
+
+        #line 102 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel DockingIllustrationPanel;
+
+        #line default
+        #line hidden
+
+
+        #line 109 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel PopupArea;
+
+        #line default
+        #line hidden
+
+
+        #line 115 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.Canvas FloatingPanel;
+
+        #line default
+        #line hidden
+
+
+        #line 118 "..\..\..\Windows\WindowsManager.xaml"
+                internal System.Windows.Controls.DockPanel DockingPanel;
+
+        #line default
+        #line hidden
         
         private bool _contentLoaded;
         
