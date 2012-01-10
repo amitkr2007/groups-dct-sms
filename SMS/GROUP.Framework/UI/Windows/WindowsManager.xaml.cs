@@ -11,9 +11,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GROUP.Framework.UI.Controls;
+using System.Windows.Threading;
 
 namespace GROUP.Framework.UI.Windows
 {
+    /// <summary>
+    /// Interaction logic for WindowsManager.xaml
+    /// </summary>
     [StyleTypedProperty(Property = "DockIllustrationContentStyleProperty", StyleTargetType = typeof(TabItem))]
     [StyleTypedProperty(Property = "DockPaneIllustrationStyle", StyleTargetType = typeof(Panel))]
     public partial class WindowsManager
@@ -115,7 +120,7 @@ namespace GROUP.Framework.UI.Windows
         /// <summary>
         /// Starts the dock pane state change detection
         /// </summary>
-        public void StartDockPaneStateChangeDetection();
+        public void StartDockPaneStateChangeDetection()
         {
             MonitorStateChangeForDockPane(DraggedPane);
         }
@@ -825,6 +830,6 @@ namespace GROUP.Framework.UI.Windows
         private bool _mouseOverPopupPane = false;
         private DispatcherTimer _popupTimer = new DispatcherTimer();
         private ObservableDependencyPropertyCollection<DockPane> _dockPaneStateMonitorList;
-
     }
+        
 }
