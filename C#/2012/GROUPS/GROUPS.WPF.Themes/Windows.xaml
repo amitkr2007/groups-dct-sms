@@ -52,6 +52,8 @@
                                         CornerRadius="2"
                                         Background="Transparent">
                                     <DockPanel LastChildFill="False">
+                                        <Image Source="/GROUPS.WPF.Resources;component/Resources/Images/App.ico"
+                                                Style="{TemplateBinding Icon}"/>
                                         <TextBlock Margin="8,0,0,4"
                                                    VerticalAlignment="Center"
                                                    FontStretch="UltraExpanded"

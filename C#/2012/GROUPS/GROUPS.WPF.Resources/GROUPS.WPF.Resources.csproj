@@ -82,7 +82,9 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\App.ico" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\Close.png" />
   </ItemGroup>
