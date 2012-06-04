@@ -1,0 +1,9 @@
+﻿<ribbon:RibbonWindow x:Class="RibbonWindowSample.RibbonWindowMvvm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
+    xmlns:local="clr-namespace:RibbonWindowSample"
+    Title="RibbonWindow MVVM" Height="600" Width="800"
+    Closing="RibbonWindow_Closing">
+    <local:UserControlMvvm x:Name="MvvmControl" />
+</ribbon:RibbonWindow>
