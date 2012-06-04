@@ -1,8 +1,9 @@
-﻿<Window x:Class="TEST.MainWindow"
+﻿<windowMain:WindowBase x:Class="TEST.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
-</Window>
+        xmlns:windowMain="clr-namespace:GROUPS.WPF.UI.Windows;assembly=GROUPS.WPF.UI"
+        Title="MainWindow" Height="374" Width="451"
+        Style="{DynamicResource MainWindow}"
+        WindowStyle="None"
+        AllowsTransparency="True"    >
+</windowMain:WindowBase>
