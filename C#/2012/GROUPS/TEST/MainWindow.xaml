@@ -5,7 +5,7 @@
         Title="MainWindow" Height="374" Width="451"
         Style="{DynamicResource MainWindow}"
         WindowStyle="None"
-        AllowsTransparency="True"    >
+        AllowsTransparency="True"  >
     <Grid Height="377" Width="452">
         <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="158,121,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
     </Grid>

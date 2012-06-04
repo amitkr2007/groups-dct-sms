@@ -11,6 +11,7 @@ namespace GROUPS.WPF.UI.Windows
     /// <summary>
     /// Custom Window
     /// </summary>     
+    [TemplatePart(Name = "PART_ICON", Type = typeof(UIElement))]
     [TemplatePart(Name = "PART_TITLEBAR", Type = typeof(UIElement))]
     [TemplatePart(Name = "PART_MINIMIZE", Type = typeof(Button))]
     [TemplatePart(Name = "PART_MAXIMIZE_RESTORE", Type = typeof(Button))]
