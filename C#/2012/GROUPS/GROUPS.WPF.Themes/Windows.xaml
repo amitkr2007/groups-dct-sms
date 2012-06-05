@@ -54,7 +54,7 @@
                                     <DockPanel LastChildFill="False">
                                         <Image Source="/GROUPS.WPF.Resources;component/Resources/Images/App.ico"
                                                 Style="{TemplateBinding Icon}"/>
-                                        <TextBlock Margin="8,0,0,4"
+                                        <TextBlock Margin="8,1,0,0"
                                                    VerticalAlignment="Center"
                                                    FontStretch="UltraExpanded"
                                                    Foreground="Black"
