@@ -7,6 +7,6 @@
         WindowStyle="None"
         AllowsTransparency="True"  >
     <Grid Height="377" Width="452">
-        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="43,46,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Left" Name="button1" VerticalAlignment="Top" Width="75" Margin="42,19,0,0" />
     </Grid>
 </windowMain:WindowBase>
