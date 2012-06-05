@@ -291,7 +291,7 @@
         <ribbon:Ribbon x:Name="ribbon"
             Grid.Row="0"
             ItemsSource="{Binding Source={x:Static data:ViewModelData.RibbonData},Path=TabDataCollection}"
-            ContextualTabGroupsSource="{Binding Source={x:Static data:ViewModelData.RibbonData},Path=ContextualTabGroupDataCollection}">
+            ContextualTabGroupsSource="{Binding Source={x:Static data:ViewModelData.RibbonData},Path=ContextualTabGroupDataCollection}" Margin="0,0,10,0">
             <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu 
                     DataContext="{Binding Source={x:Static data:ViewModelData.RibbonData},Path=ApplicationMenuData}" 
