@@ -6,7 +6,23 @@
         Style="{DynamicResource MainWindow}"
         WindowStyle="None"
         AllowsTransparency="True"  >
-    <Grid Height="377" Width="452">
-        <Button Content="Button" Height="23" HorizontalAlignment="Left" Name="button1" VerticalAlignment="Top" Width="75" Margin="42,19,0,0" />
-    </Grid>
+    <windowMain:WindowBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Menu.xaml" />
+                <ResourceDictionary Source="ToolBar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </windowMain:WindowBase.Resources>
+    <DockPanel>
+        <DockPanel     VerticalAlignment="Top" DockPanel.Dock="Top">
+            <ContentControl Content="{StaticResource MainMenu}" />
+        </DockPanel>
+        <DockPanel  VerticalAlignment="Top" DockPanel.Dock="Top">
+            <ContentControl Content="{StaticResource MainToolBar}" />
+        </DockPanel>
+        
+        <Grid Width="452" RenderTransformOrigin="0.507,0.523">
+        </Grid>
+    </DockPanel>
 </windowMain:WindowBase>
