@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="CWA.Module.DefaultModule.DefaultMainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="clr-namespace:CWA.UIControls.Menus;assembly=CWA.UIControls"
+    Height="Auto" Width="Auto" Name="DefaultMainMenu">
+
+    <Menu>
+        <ctl:MainMenuControl />
+        <ctl:HelpMenuControl />
+    </Menu>
+
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="CWA.Module.Security.SecurityMainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="clr-namespace:CWA.UIControls.Menus;assembly=CWA.UIControls"
+    Height="Auto" Width="Auto" Name="SecurityMainMenu">
+
+    <Menu>
+        <ctl:MainMenuControl />
+        <MenuItem Header="Security">
+            <MenuItem Header="New Role" />
+            <MenuItem Header="Cut" />
+            <MenuItem Header="Copy" />
+            <MenuItem Header="Delete" />
+            <MenuItem Header="Rename" />
+        </MenuItem>
+        <ctl:HelpMenuControl />
+    </Menu>
+
+</UserControl>
