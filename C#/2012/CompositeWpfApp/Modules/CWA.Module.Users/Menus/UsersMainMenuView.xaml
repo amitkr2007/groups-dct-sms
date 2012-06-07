@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="CWA.Module.Users.UsersMainMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="clr-namespace:CWA.UIControls.Menus;assembly=CWA.UIControls"
+    Height="Auto" Width="Auto" Name="UsersMainMenu">
+
+    <Menu>
+        <ctl:MainMenuControl />
+        <MenuItem Header="Users">
+            <MenuItem Header="New User" />
+            <MenuItem Header="Cut" />
+            <MenuItem Header="Copy" />
+            <MenuItem Header="Delete" />
+            <MenuItem Header="Rename" />
+            <Separator />
+            <MenuItem Header="Properties" />
+        </MenuItem>
+        <ctl:HelpMenuControl />
+    </Menu>
+
+</UserControl>
