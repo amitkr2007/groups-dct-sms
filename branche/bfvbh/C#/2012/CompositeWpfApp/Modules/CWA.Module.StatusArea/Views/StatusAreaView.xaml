@@ -1,9 +1,0 @@
-﻿<UserControl x:Class="CWA.Module.StatusArea.StatusAreaView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Height="Auto" Width="Auto">
-
-    <StatusBar Background="{DynamicResource StatusBackgroundBrush}">
-        <StatusBarItem>Status Area</StatusBarItem>
-    </StatusBar>
-</UserControl>
