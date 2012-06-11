@@ -1,0 +1,120 @@
+﻿.spr-b {
+    float: left;
+    width: 976px;
+    margin-left: 1px;
+}
+.spr-gb {
+    float: left;
+    width: 575px;
+}
+.column1 {
+    float: left;
+}
+.column2 {
+    width: 571px;
+    float: left;
+    margin-left: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+.columnleft {
+    width: 210px;
+    float: left;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+.columnRight{
+    width: 180px;
+    float: left;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+/* root element for tabs  */
+ul.css-tabs {  
+    margin:0 !important; 
+    padding:0;
+    height:30px;
+    border-bottom:1px solid #cccccc;	 	
+}
+
+/* single tab */
+ul.css-tabs li {  
+    float:left;	 
+    padding:0; 
+    margin:0;  
+    list-style-type:none;	
+}
+
+/* link inside the tab. uses a background image */
+ul.css-tabs a { 
+    float:left;
+    font-size:13px;
+    display:block;
+    padding:5px 30px;	
+    text-decoration:none;
+    height:18px;
+    color:#003399;
+    margin-right:2px;
+    position:relative;
+    top:1px;	
+    border:1px solid #ffffff;
+    border-bottom: 0px;
+    font-weight: bold;
+}
+
+ul.css-tabs a:hover {
+    background-color:#F7F7F7;
+    color:#333;
+}
+
+/* selected tab */
+ul.css-tabs a.current {
+    color:#000000;	
+    cursor:default;
+    border:1px solid #cccccc;
+    border-bottom: #ffffff solid 1px;
+}
+
+/* tab pane */
+div.css-panes div.css-pane{
+    display:none;	
+}
+.fullwidth {
+    width:100%;
+    padding: 0;
+    margin-bottom: 1px;
+    clear:both;
+    float: left;
+    position: relative;
+    display:block;
+    background: #ffffff;
+}
+.cms_separator {
+    border-top: 0;
+}
+.cms_widget { 
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: transparent;
+    border:0;
+    clear: both;
+}
+.pagination {
+    float: right;
+    clear:left;
+    vertical-align:middle;
+    font-size: 12px;
+    color: #3e3e3e;
+    _display:inline;
+}
+.xemtiep
+{
+    float: left;
+    font-size:8pt;
+    color:#ea9905;
+    text-align:right;
+    width: 282px;
+}

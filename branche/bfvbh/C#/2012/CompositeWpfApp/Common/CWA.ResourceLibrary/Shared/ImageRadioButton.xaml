@@ -1,0 +1,66 @@
+﻿<ResourceDictionary
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:ctl="clr-namespace:CWA.UIControls;assembly=CWA.UIControls">
+
+    <!--ImageRadioButton Style-->
+    
+    <Style TargetType="{x:Type ctl:ImageRadioButton}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctl:ImageRadioButton}">
+                    <Grid>
+                        <Border Name="OuterBorder" BorderThickness="1" MinWidth="80"
+                                BorderBrush="{DynamicResource ImageButtonOuterBorderBrush}" 
+                                Background="{DynamicResource ImageButtonBackgroundBrush}"
+                                CornerRadius="3" Margin="1,3,1,3" SnapsToDevicePixels="True">
+                            <Border Name="InnerBorder" BorderThickness="1" CornerRadius="2" 
+                                    SnapsToDevicePixels="True" BorderBrush="{DynamicResource ImageButtonInnerBorderBrush}" >
+                                <Grid Name="Glow" Background="Transparent">
+                                    <Border Padding="12,5,12,5">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Name="Icon" RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                                                    Source="{TemplateBinding Icon}" Stretch="None" Margin="0,0,4,0" />
+                                            <ContentPresenter
+                                                    TextBlock.Foreground="{TemplateBinding Foreground}" 
+                                                    Content="{TemplateBinding ContentControl.Content}" 
+                                                    VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonOuterBorderBrushOver}" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource ImageButtonBackgroundBrushOver}" />
+                            <Setter TargetName="InnerBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonInnerBorderBrushOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonOuterBorderBrushOver}" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource ImageButtonBackgroundBrushOver}" />
+                            <Setter TargetName="InnerBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonInnerBorderBrushOver}" />
+                            <Setter TargetName="Glow" Property="Background" Value="{DynamicResource ImageButtonGlowBrushPressed}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonOuterBorderBrushPressed}" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource ImageButtonBackgroundBrushPressed}" />
+                            <Setter TargetName="InnerBorder" Property="BorderBrush" Value="{DynamicResource ImageButtonInnerBorderBrushPressed}" />
+                            <Setter TargetName="Glow" Property="Background" Value="{DynamicResource ImageButtonGlowBrushChecked}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource DisabledForegroundBrush}" />
+                            <Setter TargetName="Icon" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

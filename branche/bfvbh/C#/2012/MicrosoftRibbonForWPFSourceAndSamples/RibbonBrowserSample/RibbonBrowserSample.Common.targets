@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <ApplicationDefinition Include="..\App.xaml">
+      <Visible>True</Visible>
+      <Link>App.xaml</Link>
+    </ApplicationDefinition>
+    <Compile Include="..\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+      <Link>App.xaml.cs</Link>
+    </Compile>
+    <Page Include="..\PageMvvm.xaml">
+      <Visible>True</Visible>
+      <Link>PageMvvm.xaml</Link>
+    </Page>
+    <Page Include="..\PageWord.xaml">
+      <Visible>True</Visible>
+      <Link>PageWord.xaml</Link>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\PageMvvm.xaml.cs">
+      <DependentUpon>PageMvvm.xaml</DependentUpon>
+      <Visible>True</Visible>
+      <Link>PageMvvm.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\PageWord.xaml.cs">
+      <DependentUpon>PageWord.xaml</DependentUpon>
+      <Visible>True</Visible>
+      <Link>PageWord.xaml.cs</Link>
+    </Compile>
+    <None Include="..\RibbonBrowser_TemporaryKey.pfx" />
+    <None Include="..\Properties\app.manifest" />
+    <AppDesigner Include="..\Properties\" />
+
+    <Compile Include="..\..\SamplesCommon\GlobalSuppressions.cs">
+      <Visible>True</Visible>
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SamplesCommon\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="Microsoft.Windows.Shell">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WindowChrome\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,171 @@
+﻿<ResourceDictionary x:Class="CWA.ResourceLibrary.Skins.BlueSkin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+    
+    This file contains resources for the Blue Skin. 
+    Common resources are stored in Resources.xaml.
+    
+    -->
+
+    <!-- Border Brushes -->
+
+    <SolidColorBrush x:Key="ItemBorderBrush" Color="#FFb2b4b7" />
+
+
+    <!--Main View Background-->
+
+    <LinearGradientBrush x:Key="ViewBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FF7278ff" Offset="0"/>
+        <GradientStop Color="#FFd7d7fa" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--Main Menu Style-->
+
+    <SolidColorBrush x:Key="MenuHeaderForegroundBrush" Color="White" />
+    <SolidColorBrush x:Key="MenuHeaderForegroundBrushOver" Color="Black" />
+
+    <LinearGradientBrush x:Key="MenuBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FF8C9CAD" Offset="0.0"></GradientStop>
+        <GradientStop Color="#FF437093" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FF18517D" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FF227FB8" Offset="1.0"></GradientStop>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuHeaderBackgroundBrushOver" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFDDB" Offset="0"/>
+        <GradientStop Color="#FFFFE898" Offset="0.35"/>
+        <GradientStop Color="#FFFFD646" Offset="0.36"/>
+        <GradientStop Color="#FFFFE9A4" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MenuHeaderBackgroundBrushPressed" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFC88484" Offset="0.0"></GradientStop>
+        <GradientStop Color="#FFC54C4C" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FFBA2625" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FFFC5D5C" Offset="1.0"></GradientStop>
+    </LinearGradientBrush>
+
+
+    <!--Status Background-->
+
+    <LinearGradientBrush x:Key="StatusBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#FFced1db" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--DropDownButton Brushes-->
+
+    <SolidColorBrush x:Key="DropDownButtonArrowBrush" Color="Black" />
+
+    <LinearGradientBrush x:Key="DropDownButtonBackgroundBrushOver" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFDDB" Offset="0"/>
+        <GradientStop Color="#FFFFE898" Offset="0.35"/>
+        <GradientStop Color="#FFFFD646" Offset="0.36"/>
+        <GradientStop Color="#FFFFE9A4" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="DropDownButtonBackgroundBrushPressed" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFE9A4" Offset="0"/>
+        <GradientStop Color="#FFFFD646" Offset="0.2"/>
+        <GradientStop Color="#FFFFE898" Offset="0.8"/>
+        <GradientStop Color="#FFFFFDDB" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--CloseTabButton Brushes-->
+
+    <LinearGradientBrush x:Key="CloseTabButtonBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFfbfcb0"/>
+        <GradientStop Offset="1" Color="#FFffef5f"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CloseTabButtonBackgroundBrushOver" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFffe396"/>
+        <GradientStop Offset="1" Color="#FFffa840"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CloseTabButtonBackgroundBrushPressed" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFC88484" Offset="0.0"></GradientStop>
+        <GradientStop Color="#FFC54C4C" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FFBA2625" Offset="0.4"></GradientStop>
+        <GradientStop Color="#FFFC5D5C" Offset="1.0"></GradientStop>
+    </LinearGradientBrush>
+
+
+    <!--TabItem Brushes-->
+
+    <SolidColorBrush x:Key="TabItemSelectedBackgroundBrush" Color="#FFf5f5f5" />
+
+    <LinearGradientBrush x:Key="TabItemInactiveBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFf7f7f7"/>
+        <GradientStop Offset="0.25" Color="#FFededed"/>
+        <GradientStop Offset="1" Color="#FFe6e6e6"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabItemBackgroundBrushOver" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFDDB" Offset="0"/>
+        <GradientStop Color="#FFFFE898" Offset="0.35"/>
+        <GradientStop Color="#FFFFD646" Offset="0.36"/>
+        <GradientStop Color="#FFFFE9A4" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--Server Selector Brushes-->
+
+    <SolidColorBrush x:Key="ServerSelectorBackgroundBrush" Color="#FFe6e6e6" />
+    <SolidColorBrush x:Key="ServerSelectorBorderBrush" Color="#FFF0F0F0" />
+
+
+    <!--ModuleSelector Brushes-->
+
+    <LinearGradientBrush x:Key="ModuleSelectorBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#FFFFFFFF" Offset="0.35"/>
+        <GradientStop Color="#FFd4dbe5" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="ModuleSelectorBorderBrush" Color="#FFb2b4b7" />
+
+    <SolidColorBrush x:Key="ImageButtonOuterBorderBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ImageButtonInnerBorderBrush" Color="#FFd4dbe5" />
+    <SolidColorBrush x:Key="ImageButtonOuterBorderBrushOver" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ImageButtonInnerBorderBrushOver" Color="#FFC2A978" />
+    <SolidColorBrush x:Key="ImageButtonOuterBorderBrushPressed" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ImageButtonInnerBorderBrushPressed" Color="#FF726851" />
+
+    <LinearGradientBrush x:Key="ImageButtonBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#FFFFFFFF" Offset="0.35"/>
+        <GradientStop Color="#FFd4dbe5" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ImageButtonBackgroundBrushOver" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFFFFDDB" Offset="0"/>
+        <GradientStop Color="#FFFFE898" Offset="0.35"/>
+        <GradientStop Color="#FFFFD646" Offset="0.36"/>
+        <GradientStop Color="#FFFFE9A4" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ImageButtonBackgroundBrushPressed" StartPoint="0.5,0" EndPoint="0.5,1.0">
+        <GradientStop Color="#FFfedcb7" Offset="0"/>
+        <GradientStop Color="#FFfab36d" Offset="0.35"/>
+        <GradientStop Color="#FFF88F2C" Offset="0.36"/>
+        <GradientStop Color="#FFFABF6C" Offset="1"/>
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="ImageButtonGlowBrushPressed" GradientOrigin="0.5,1" Center="0.5,0.9" SpreadMethod="Pad">
+        <GradientStop Offset="0.0" Color="#FFFFF2C7" />
+        <GradientStop Offset="1.0" Color="Transparent" />
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="ImageButtonGlowBrushChecked" GradientOrigin="0.5,1" Center="0.5,0.9" SpreadMethod="Pad">
+        <GradientStop Offset="0.0" Color="#FFFDEAA6" />
+        <GradientStop Offset="1.0" Color="Transparent" />
+    </RadialGradientBrush>
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CWA.ResourceLibrary;component/Shared/Resources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
