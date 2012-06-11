@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="CompositeWpfApp">
+</Property><Property Name="Solution File" Value="E:\Project\CompositeWpfApp\CompositeWpfApp.sln">
+</Property><Property Name="Date" Value="Wednesday, June 06, 2012">
+</Property><Property Name="Time" Value="17:24 PM">
+</Property></Properties><Event ErrorLevel="0" Project="CompositeWpfApp" Source="CompositeWpfApp\CompositeWpfApp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CompositeWpfApp" Source="CompositeWpfApp\CompositeWpfApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.ResourceLibrary" Source="Common\CWA.ResourceLibrary\CWA.ResourceLibrary.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.ResourceLibrary" Source="Common\CWA.ResourceLibrary\CWA.ResourceLibrary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.UIControls" Source="Common\CWA.UIControls\CWA.UIControls.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.UIControls" Source="Common\CWA.UIControls\CWA.UIControls.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Infrastructure" Source="Common\CWA.Infrastructure\CWA.Infrastructure.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Infrastructure" Source="Common\CWA.Infrastructure\CWA.Infrastructure.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.DefaultModule" Source="Modules\CWA.Module.DefaultModule\CWA.Module.DefaultModule.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.DefaultModule" Source="Modules\CWA.Module.DefaultModule\CWA.Module.DefaultModule.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Documents" Source="Modules\CWA.Module.Documents\CWA.Module.Documents.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.Documents" Source="Modules\CWA.Module.Documents\CWA.Module.Documents.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.ModuleSelector" Source="Modules\CWA.Module.ModuleSelector\CWA.Module.ModuleSelector.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.ModuleSelector" Source="Modules\CWA.Module.ModuleSelector\CWA.Module.ModuleSelector.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.ServerSelector" Source="Modules\CWA.Module.ServerSelector\CWA.Module.ServerSelector.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.ServerSelector" Source="Modules\CWA.Module.ServerSelector\CWA.Module.ServerSelector.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.StatusArea" Source="Modules\CWA.Module.StatusArea\CWA.Module.StatusArea.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.StatusArea" Source="Modules\CWA.Module.StatusArea\CWA.Module.StatusArea.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Security" Source="Modules\CWA.Module.Security\CWA.Module.Security.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.Security" Source="Modules\CWA.Module.Security\CWA.Module.Security.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Users" Source="Modules\CWA.Module.Users\CWA.Module.Users.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CWA.Module.Users" Source="Modules\CWA.Module.Users\CWA.Module.Users.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="CompositeWpfApp.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="CompositeWpfApp.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CWA.ResourceLibrary" Source="Common\CWA.ResourceLibrary\CWA.ResourceLibrary.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.UIControls" Source="Common\CWA.UIControls\CWA.UIControls.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Infrastructure" Source="Common\CWA.Infrastructure\CWA.Infrastructure.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.DefaultModule" Source="Modules\CWA.Module.DefaultModule\CWA.Module.DefaultModule.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Documents" Source="Modules\CWA.Module.Documents\CWA.Module.Documents.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.ModuleSelector" Source="Modules\CWA.Module.ModuleSelector\CWA.Module.ModuleSelector.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.ServerSelector" Source="Modules\CWA.Module.ServerSelector\CWA.Module.ServerSelector.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.StatusArea" Source="Modules\CWA.Module.StatusArea\CWA.Module.StatusArea.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Security" Source="Modules\CWA.Module.Security\CWA.Module.Security.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CWA.Module.Users" Source="Modules\CWA.Module.Users\CWA.Module.Users.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CompositeWpfApp" Source="CompositeWpfApp\CompositeWpfApp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

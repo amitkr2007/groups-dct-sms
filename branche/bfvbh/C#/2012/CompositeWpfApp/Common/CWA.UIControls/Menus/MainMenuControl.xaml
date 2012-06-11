@@ -1,0 +1,16 @@
+﻿<MenuItem x:Class="CWA.UIControls.Menus.MainMenuControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:inf="clr-namespace:CWA.Infrastructure;assembly=CWA.Infrastructure"
+
+    Header="Main Menu">
+
+    <MenuItem Header="Settings" Command="inf:GlobalCommands.SettingsCommand" />
+    <MenuItem Header="Style..." SubmenuOpened="StyleMenuItem_SubmenuOpened">
+        <MenuItem Header="Default" Command="inf:GlobalCommands.SkinCommand" CommandParameter="DefaultSkin" IsCheckable="True" />
+        <MenuItem Header="Blue" Command="inf:GlobalCommands.SkinCommand" CommandParameter="BlueSkin" IsCheckable="True" />
+    </MenuItem>
+    <Separator />
+    <MenuItem Header="Exit" Command="inf:GlobalCommands.ExitCommand" />
+
+</MenuItem>
